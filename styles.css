@@ -1,14 +1,11 @@
 :root {
-  color-scheme: light dark;
-  --bg-color: linear-gradient(160deg, #0f172a, #1e293b 55%, #111827 100%);
-  --panel-bg: rgba(15, 23, 42, 0.75);
+  color-scheme: only light;
+  --bg-color: #111827;
+  --panel-bg: #1f2937;
   --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.25);
-  --border-color: rgba(148, 163, 184, 0.3);
-  --text-primary: #f8fafc;
-  --text-secondary: rgba(226, 232, 240, 0.75);
-  font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
+  --text-primary: #f9fafb;
+  --text-secondary: #cbd5f5;
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * {
@@ -18,232 +15,120 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-image: var(--bg-color);
-  background-attachment: fixed;
-  background-size: cover;
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 45%), var(--bg-color);
   color: var(--text-primary);
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  padding: 40px 20px;
-}
-
-.page {
-  width: min(1200px, 100%);
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.page__header {
-  text-align: center;
-  display: grid;
-  gap: 12px;
-}
-
-.page__title {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 700;
-}
-
-.page__subtitle {
-  margin: 0 auto;
-  max-width: 560px;
-  color: var(--text-secondary);
-  font-size: 1rem;
-}
-
-.page__content {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.panel {
-  backdrop-filter: blur(18px);
-  background-color: var(--panel-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 22px;
-  padding: 28px;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.panel__header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.panel__header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.panel__hint {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
-.equipment-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.equipment-slot {
-  border: 1px solid var(--border-color);
-  border-radius: 18px;
-  padding: 18px;
-  background: rgba(15, 23, 42, 0.6);
-  display: grid;
-  gap: 12px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.equipment-slot:hover {
-  border-color: var(--accent);
-  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
-}
-
-.slot__label {
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.slot__placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px dashed var(--accent-soft);
-  border-radius: 12px;
-  padding: 16px;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  min-height: 56px;
-  background: rgba(14, 116, 144, 0.12);
+  padding: 40px 20px;
 }
 
-.rune-board {
+.layout {
   display: grid;
-  gap: 20px;
+  width: min(1100px, 100%);
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.rune-board__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.rune-slot {
+.panel {
+  background: var(--panel-bg);
   border-radius: 20px;
-  padding: 20px;
-  background: linear-gradient(160deg, rgba(56, 189, 248, 0.2), rgba(14, 165, 233, 0.08));
-  border: 1px solid rgba(125, 211, 252, 0.4);
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.panel__hint {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.equipment__list {
   display: grid;
   gap: 12px;
-  min-height: 120px;
-  position: relative;
-  overflow: hidden;
 }
 
-.rune-slot::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.3), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.rune-slot:hover::after {
-  opacity: 1;
-}
-
-.rune-slot--large {
-  grid-column: span 2;
-  min-height: 160px;
-}
-
-.rune-slot__title {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.rune-slot__placeholder {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
-
-.rune-board__notes {
-  border-radius: 18px;
-  padding: 20px 24px;
+.equipment__slot {
+  appearance: none;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 14px;
   background: rgba(15, 23, 42, 0.55);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: inherit;
+  font: inherit;
+  padding: 16px 20px;
+  text-align: left;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
 }
 
-.rune-board__notes h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-size: 1.1rem;
+.equipment__slot:hover {
+  border-color: rgba(56, 189, 248, 0.7);
 }
 
-.rune-board__notes ul {
-  list-style: none;
+.equipment__slot--active {
+  border-color: var(--accent);
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.2);
+}
+
+.rune__selected {
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 14px;
+  padding: 14px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.rune__list {
+  display: grid;
+  gap: 14px;
+  min-height: 220px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px dashed rgba(148, 163, 184, 0.35);
+  padding: 20px;
+}
+
+.rune__placeholder {
   margin: 0;
-  padding: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.rune-card {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 14px;
+  padding: 16px 18px;
   display: grid;
   gap: 8px;
 }
 
-.rune-board__notes li {
-  position: relative;
-  padding-left: 18px;
-  font-size: 0.95rem;
+.rune-card__title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.rune-card__description {
+  margin: 0;
   color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-.rune-board__notes li::before {
-  content: '◆';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-size: 0.7rem;
-  top: 2px;
-}
-
-@media (max-width: 960px) {
+@media (max-width: 720px) {
   body {
     padding: 24px 16px;
   }
 
-  .page__content {
-    grid-template-columns: 1fr;
-  }
-
   .panel {
     padding: 24px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page__title {
-    font-size: clamp(1.75rem, 8vw, 2.2rem);
-  }
-
-  .equipment-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .rune-board__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .rune-slot--large {
-    grid-column: auto;
   }
 }

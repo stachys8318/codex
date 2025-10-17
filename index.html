@@ -3,107 +3,101 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>장비 및 룬 슬롯</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>장비 슬롯 &amp; 룬 슬롯</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page">
-      <header class="page__header">
-        <h1 class="page__title">장비 &amp; 룬 관리</h1>
-        <p class="page__subtitle">
-          좌측에서 장비 슬롯을 구성하고 우측에서 룬을 배치해 보세요.
-        </p>
-      </header>
-      <main class="page__content">
-        <section class="panel panel--equipment" aria-labelledby="equipment-title">
-          <div class="panel__header">
-            <h2 id="equipment-title">장비 슬롯</h2>
-            <span class="panel__hint">드래그 앤 드롭을 지원하도록 확장할 수 있어요.</span>
-          </div>
-          <div class="equipment-grid" role="list">
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">무기</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">목걸이</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">반지1</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">반지2</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">엠블럼</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">모자</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">상의</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">하의</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">장갑</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-            <div class="equipment-slot" role="listitem">
-              <div class="slot__label">신발</div>
-              <div class="slot__placeholder">아이템을 배치하세요</div>
-            </div>
-          </div>
-        </section>
-        <section class="panel panel--rune" aria-labelledby="rune-title">
-          <div class="panel__header">
-            <h2 id="rune-title">룬 슬롯</h2>
-            <span class="panel__hint">룬을 조합하여 추가 능력치를 얻어보세요.</span>
-          </div>
-          <div class="rune-board">
-            <div class="rune-board__grid">
-              <div class="rune-slot rune-slot--large">
-                <span class="rune-slot__title">핵심 룬</span>
-                <span class="rune-slot__placeholder">핵심 룬 장착</span>
-              </div>
-              <div class="rune-slot">
-                <span class="rune-slot__title">보조 룬 A</span>
-                <span class="rune-slot__placeholder">룬 장착</span>
-              </div>
-              <div class="rune-slot">
-                <span class="rune-slot__title">보조 룬 B</span>
-                <span class="rune-slot__placeholder">룬 장착</span>
-              </div>
-              <div class="rune-slot">
-                <span class="rune-slot__title">보조 룬 C</span>
-                <span class="rune-slot__placeholder">룬 장착</span>
-              </div>
-            </div>
-            <div class="rune-board__notes">
-              <h3>룬 효과</h3>
-              <ul>
-                <li>공격력 +12%</li>
-                <li>크리티컬 확률 +8%</li>
-                <li>스킬 쿨타임 감소 6%</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+    <main class="layout">
+      <section class="panel equipment" aria-labelledby="equipment-title">
+        <h1 id="equipment-title">장비 슬롯</h1>
+        <p class="panel__hint">착용 부위를 선택하면 우측에 룬 카드 목록이 표시됩니다.</p>
+        <div class="equipment__list" role="list">
+          <button class="equipment__slot" data-slot="무기" type="button">무기</button>
+          <button class="equipment__slot" data-slot="목걸이" type="button">목걸이</button>
+          <button class="equipment__slot" data-slot="반지1" type="button">반지1</button>
+          <button class="equipment__slot" data-slot="반지2" type="button">반지2</button>
+          <button class="equipment__slot" data-slot="엠블럼" type="button">엠블럼</button>
+          <button class="equipment__slot" data-slot="모자" type="button">모자</button>
+          <button class="equipment__slot" data-slot="상의" type="button">상의</button>
+          <button class="equipment__slot" data-slot="하의" type="button">하의</button>
+          <button class="equipment__slot" data-slot="장갑" type="button">장갑</button>
+          <button class="equipment__slot" data-slot="신발" type="button">신발</button>
+        </div>
+      </section>
+
+      <section class="panel rune" aria-labelledby="rune-title">
+        <div class="rune__header">
+          <h1 id="rune-title">룬 슬롯</h1>
+          <p class="panel__hint">각 장비 부위에 착용 가능한 룬 카드를 이 영역에 정리하세요.</p>
+        </div>
+        <div class="rune__selected" aria-live="polite">선택된 장비 없음</div>
+        <div class="rune__list" id="rune-list" aria-live="polite">
+          <p class="rune__placeholder">좌측에서 장비 슬롯을 선택하면 룬 카드 리스트가 표시됩니다.</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const runeData = {
+        무기: [],
+        목걸이: [],
+        반지1: [],
+        반지2: [],
+        엠블럼: [],
+        모자: [],
+        상의: [],
+        하의: [],
+        장갑: [],
+        신발: [],
+      };
+
+      const equipmentButtons = document.querySelectorAll('.equipment__slot');
+      const runeList = document.getElementById('rune-list');
+      const selectedSlotLabel = document.querySelector('.rune__selected');
+
+      function renderRuneList(slot) {
+        const cards = runeData[slot] ?? [];
+
+        runeList.innerHTML = '';
+
+        if (!cards.length) {
+          runeList.innerHTML =
+            '<p class="rune__placeholder">룬 카드가 등록되면 여기에 표시됩니다.</p>';
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        cards.forEach((card) => {
+          const cardElement = document.createElement('article');
+          cardElement.className = 'rune-card';
+
+          const title = document.createElement('h2');
+          title.className = 'rune-card__title';
+          title.textContent = card.name;
+
+          const description = document.createElement('p');
+          description.className = 'rune-card__description';
+          description.textContent = card.description;
+
+          cardElement.appendChild(title);
+          cardElement.appendChild(description);
+          fragment.appendChild(cardElement);
+        });
+
+        runeList.appendChild(fragment);
+      }
+
+      equipmentButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          equipmentButtons.forEach((el) => el.classList.remove('equipment__slot--active'));
+          button.classList.add('equipment__slot--active');
+
+          const slotName = button.dataset.slot;
+          selectedSlotLabel.textContent = `선택된 장비: ${slotName}`;
+          renderRuneList(slotName);
+        });
+      });
+    </script>
   </body>
 </html>
